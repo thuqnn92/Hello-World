@@ -1,16 +1,21 @@
-export const ADD_OPERATION = 'ADD_OPERATION';
-export const ADD_NUMBER = 'ADD_NUMBER';
-export const RESTORE_EXPRESSION = 'RESTORE_EXPRESSION';
+/* eslint-disable no-unused-labels */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-labels */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable prettier/prettier */
 
-export const toExpression = (type, payload) => ({
-  type,
-  payload,
-});
-
-export const opToExpression = (op) => toExpression(ADD_OPERATION, op);
-export const numToExpression = num => toExpression(ADD_NUMBER, num);
-
-export const restoreExpression = (payload) => ({
-  type: RESTORE_EXPRESSION,
-  payload,
-});
+export const NUMBER = () => ({
+  type: 'NUMBER'
+})
+export const OPERATOR = () => ({
+  type: 'OPERATOR'
+})
+export const RESULT = () => ({
+  type: 'RESULT'
+})
+export const CLEAN = () => ({
+  type: 'CLEAN'
+})
+export const BACK = () => ({
+  type: 'BACK'
+})
