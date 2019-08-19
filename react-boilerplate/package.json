@@ -12,7 +12,7 @@
   },
   "author": "Max Stoiber",
   "license": "MIT",
-  "scripts": {
+  "scripts": { 
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
