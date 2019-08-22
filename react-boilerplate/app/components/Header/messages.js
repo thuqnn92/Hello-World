@@ -20,4 +20,8 @@ export default defineMessages({
     id: `${scope}.sagaredux`,
     defaultMessage: 'Redux Saga',
   },
+  todolist: {
+    id: `${scope}.todolist`,
+    defaultMessage: 'To Do List',
+  },
 });

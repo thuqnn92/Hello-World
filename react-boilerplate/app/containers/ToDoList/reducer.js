@@ -1,20 +1,20 @@
 /*
  *
- * ReduxSaga reducer
+ * ToDoList reducer
  *
  */
 import produce from 'immer';
-import { RECEIVE_API_DATA } from './constants';
+import { DEFAULT_ACTION } from './constants';
 
 export const initialState = {};
 
 /* eslint-disable default-case, no-param-reassign */
-const reduxSagaReducer = (state = initialState, action) =>
+const toDoListReducer = (state = initialState, action) =>
   produce(state, (/* draft */) => {
     switch (action.type) {
-      case RECEIVE_API_DATA:
+      case DEFAULT_ACTION:
         break;
     }
   });
 
-export default reduxSagaReducer;
+export default toDoListReducer;

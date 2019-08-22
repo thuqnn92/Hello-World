@@ -4,10 +4,16 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { RECEIVE_API_DATA, REQUEST_API_DATA } from './constants';
 
-export function defaultAction() {
+export function requestApi() {
   return {
-    type: DEFAULT_ACTION,
+    type: REQUEST_API_DATA,
+  };
+}
+export function receiveApi(data) {
+  return {
+    type: RECEIVE_API_DATA,
+    data,
   };
 }

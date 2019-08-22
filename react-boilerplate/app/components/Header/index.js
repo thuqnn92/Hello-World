@@ -24,6 +24,9 @@ function Header() {
         <HeaderLink to="/sagaredux">
           <FormattedMessage {...messages.sagaredux} />
         </HeaderLink>
+        <HeaderLink to="/todolist">
+          <FormattedMessage {...messages.todolist} />
+        </HeaderLink>
       </NavBar>
     </div>
   );
