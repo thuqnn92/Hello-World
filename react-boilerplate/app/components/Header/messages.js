@@ -18,6 +18,6 @@ export default defineMessages({
   },
   sagaredux: {
     id: `${scope}.sagaredux`,
-    defaultMessage: 'Saga Redux',
+    defaultMessage: 'Redux Saga',
   },
 });
