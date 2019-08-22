@@ -16,4 +16,8 @@ export default defineMessages({
     id: `${scope}.features`,
     defaultMessage: 'Features',
   },
+  sagaredux: {
+    id: `${scope}.sagaredux`,
+    defaultMessage: 'Saga Redux',
+  },
 });

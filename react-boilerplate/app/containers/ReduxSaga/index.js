@@ -25,6 +25,7 @@ export function ReduxSaga() {
   return (
     <div>
       <FormattedMessage {...messages.header} />
+      <h1>Hello</h1>
     </div>
   );
 }

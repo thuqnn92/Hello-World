@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 const App = props => {
   return (
     <div>
-       <h1>REDUX</h1>
+       <h1>Redux</h1>
       <h1>{props.count}</h1>
       <button type="button" onClick={props.increase}>Increment</button>
       <button type="button" onClick={props.decrease}>Decrement</button>

@@ -37,7 +37,6 @@ import CounterClass from './component/CounterClass';
 import CounterHook from './component/CounterHook';
 import reducers from "./reducers";
 import App from "./component/AppRedux";
-import CaculatorRedux from "./component/CaculatorRedux";
 import ReduversCaculator from './reducers/Caculator';
 import NewReduxCaculator from './component/NewReduxCaculator';
 const store = createStore(reducers);
@@ -89,7 +88,6 @@ export function HomePage({
             <FormattedMessage {...messages.trymeHeader} />
             <CounterClass />
             <CounterHook />
-            <CaculatorRedux />
             <Provider store={store}>
               <App />
             </Provider>
