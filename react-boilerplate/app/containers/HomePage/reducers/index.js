@@ -1,20 +1,19 @@
-const initialSate = {
+import produce from 'immer';
+export const initialState = {
   count: 0,
 };
 
-const onClickReducer = (state = initialSate, action) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return {
-        count: state.count + 1,
-      };
+/* eslint-disable default-case, no-param-reassign */
+const onClickReducer = (state = initialState, action) =>
+  produce(state, draft => {
+    switch (action.type) {
+      case 'INCREMENT':
+    draft.count = draft.count + 1;
+    break;
     case 'DECREMENT':
-      return {
-        count: state.count - 1,
-      };
-    default:
-      return state;
-  }
-};
+      draft.count = draft.count - 1;
+    break;
+    }
+  });
 
 export default onClickReducer;
