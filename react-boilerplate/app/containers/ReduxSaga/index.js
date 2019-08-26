@@ -14,9 +14,19 @@ import { compose } from 'redux';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectReduxSaga from './selectors';
-import reducer from './reducer';
-import saga from './saga';
+import reducer from './reducers/reducer';
+import saga from './sagas/saga';
 import messages from './messages';
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import createSagaMiddleware from "redux-saga";
+import App from "./components/App";
+
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+sagaMiddleware.run(saga);
+
 
 export function ReduxSaga() {
   useInjectReducer({ key: 'reduxSaga', reducer });
@@ -25,7 +35,11 @@ export function ReduxSaga() {
   return (
     <div>
       <FormattedMessage {...messages.header} />
+      <Provider store={store}>
+      <App />
+    </Provider>
     </div>
+    
   );
 }
 
