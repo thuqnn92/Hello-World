@@ -10,11 +10,11 @@ export const scope = 'boilerplate.components.Header';
 export default defineMessages({
   home: {
     id: `${scope}.home`,
-    defaultMessage: 'Home',
+    defaultMessage: 'Home Count',
   },
   features: {
     id: `${scope}.features`,
-    defaultMessage: 'Features',
+    defaultMessage: 'Calculator',
   },
   sagaredux: {
     id: `${scope}.sagaredux`,

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { initialState } from './reducer';
+import { initialState } from './reducers/reducer';
 
 /**
  * Direct selector to the toDoList state domain
