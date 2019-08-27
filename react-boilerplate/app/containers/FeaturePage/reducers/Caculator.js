@@ -37,8 +37,8 @@ const reducerCalculator = (state = initialState, action) =>
     const left = input.match(regexLeft);
     const operator = input.match(regexOp)[0];
     const right = input.match(regexRight);
-    let num1 = parseInt(left + right[0],10);
-    let num2 = parseInt(right[1],10);
+    let num1 = parseFloat(left + right[0],10);
+    let num2 = parseFloat(right[1],10);
     switch (operator) {
       case '+':
         return (num1 + num2);

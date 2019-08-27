@@ -12,46 +12,29 @@ import {
   COMPLETE_TODO,
   ALL_COMPLETE_TODO,
   FILTER_TODO,
+  TOGGLE_TODO,
 } from '../contants/constants';
 
-export function addTodo(text) {
-  return {
-    type: ADD_TODO,
-    text,
-  };
-}
-export function editTodo(id, text) {
-  return {
-    type: EDIT_TODO,
-    id,
-    text,
-  };
-}
-export function deleteTodo(id) {
-  return {
-    type: DELETE_TOTO,
-    id,
-  };
-}
-export function cleanTodo() {
-  return {
-    type: CLEAN_TODO,
-  };
-}
-export function completeTodo(id) {
-  return {
-    type: COMPLETE_TODO,
-    id,
-  };
-}
-export function allCompleteTodo() {
-  return {
-    type: ALL_COMPLETE_TODO,
-  };
-}
-export function filterTodo(filter) {
-  return {
-    type: FILTER_TODO,
-    filter,
-  };
+let nextTodoId = 0;
+export const addTodo = text => ({
+  type: ADD_TODO,
+  // eslint-disable-next-line no-plusplus
+  id: nextTodoId++,
+  text,
+});
+
+export const setVisibilityFilter = filter => ({
+  type: FILTER_TODO,
+  filter,
+});
+
+export const toggleTodo = id => ({
+  type: TOGGLE_TODO,
+  id,
+});
+
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_COMPLETED: 'SHOW_COMPLETED',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
 }

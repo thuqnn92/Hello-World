@@ -12,6 +12,7 @@ import {
   COMPLETE_TODO,
   ALL_COMPLETE_TODO,
   FILTER_TODO,
+  TOGGLE_TODO,
 } from '../contants/constants';
 
 export const initialState = {
@@ -25,13 +26,16 @@ const toDoListReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case ADD_TODO:
-        draft.id =
-          draft.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1;
+        draft.id = action.id;
         draft.complete = false;
         draft.text = action.text;
         break;
-      case DELETE_TOTO:
-        draft.filter(todo => todo.id !== action.id);
+      case TOGGLE_TODO:
+        state.map(todo =>
+          todo.id === action.id
+            ? { ...draft, completed: !todo.completed }
+            : todo,
+        );
         break;
       case CLEAN_TODO:
         draft.filter(todo => todo.completed === false);

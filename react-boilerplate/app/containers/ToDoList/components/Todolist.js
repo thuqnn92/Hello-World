@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {addTodo,setVisibilityFilter,toggleTodo} from '../actions/actions';
 class Todolist extends Component {
   render() {
     

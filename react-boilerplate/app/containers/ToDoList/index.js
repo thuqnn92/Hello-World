@@ -16,7 +16,6 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectToDoList from './selectors';
 import reducer from './reducers/reducer';
 import saga from './sagas/saga';
-import messages from './messages';
 import Todolist from './components/Todolist';
 const store = createStore(reducer);
 export function ToDoList() {
@@ -25,7 +24,6 @@ export function ToDoList() {
 
   return (
     <div>
-      <FormattedMessage {...messages.header} />
       <Provider store={store}>
         <Todolist />
       </Provider>
