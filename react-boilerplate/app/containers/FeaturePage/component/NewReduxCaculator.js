@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  changeCalculator,
-  changeClean,
-  changeOperator,
-  changeInput,
-  changeBack,
+  setCleanAction,
+  setInputAction,
   setDotAction,
+  SetCalculatorAction,
+  SetBackAction,
+  SetOperatorAction,
   setMinusAction,
 } from '../actions/Calculator';
 const operators = ['-', '+', '*', '/'];
@@ -108,11 +108,11 @@ const mapStateToProps = state => ({
 
 function mapDispatchToProps(dispatch) {
   return {
-    setNumber: input => dispatch(changeInput(input)),
-    setOperator: opr => dispatch(changeOperator(opr)),
-    setClean: () => dispatch(changeClean()),
-    setBack: () => dispatch(changeBack()),
-    setResult: () => dispatch(changeCalculator()),
+    setNumber: input => dispatch(setInputAction(input)),
+    setOperator: opr => dispatch(SetOperatorAction(opr)),
+    setClean: () => dispatch(setCleanAction()),
+    setBack: () => dispatch(SetBackAction()),
+    setResult: () => dispatch(SetCalculatorAction()),
     setDot: input => dispatch(setDotAction(input)),
     setMinus: () => dispatch(setMinusAction()),
   };

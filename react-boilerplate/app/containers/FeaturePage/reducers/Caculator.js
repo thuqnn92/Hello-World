@@ -22,27 +22,27 @@ const reducerCalculator = (state = initialState, action) =>
         draft.input += action.payload;
         break;
       case BACK:
-        draft.input = back(draft.input);
+        draft.input = backReducer(draft.input);
         break;
       case CALCULATOR:
-        draft.input = calc(draft.input);
+        draft.input = calcReducer(draft.input);
         draft.operator = '';
         break;
       case OPERATOR:
-        draft.input = setOper(draft.input, action.payload);
+        draft.input = setOperReducer(draft.input, action.payload);
         break;
       case CLEAN:
         draft.input = '';
         break;
       case DOT:
-        draft.input = setDot(draft.input);
+        draft.input = setDotReducer(draft.input);
         break;
       case MINUS:
-        draft.input = setMinus(draft.input);
+        draft.input = setMinusReducer(draft.input);
         break;
     }
   });
-function setMinus(input) {
+function setMinusReducer(input) {
   const regexOfPositive = /^\d*(\.\d*)?$/g;
   const regexOfNegative = /^(-)\d*(\.\d*)?$/g;
   if (String(input).match(regexOfPositive)) {
@@ -53,7 +53,7 @@ function setMinus(input) {
   }
   return input;
 }
-function setDot(input) {
+function setDotReducer(input) {
   const regex1 = /^(-)?\d+$/;
   const regex2 = /^(-)?$/;
   const regex3 = /^(-)?\d+(\.\d+)?(\+|-|\*|\/)\d+$/;
@@ -75,11 +75,11 @@ function setDot(input) {
   return input;
 }
 
-function back(input) {
+function backReducer(input) {
   const sub = String(input).substr(0, input.length - 1);
   return sub;
 }
-function calc(input) {
+function calcReducer(input) {
   const regex1 = /^(-)?\d+(\.\d+)?(\+|-|\*|\/)\d+(\.\d+)?$/;
   const regexNumber = /\d+(\.\d+)?/g;
   const regexOp = /(\+|-|\*|\/)/g;
@@ -110,7 +110,7 @@ function calc(input) {
 
   return input;
 }
-function setOper(input, opr) {
+function setOperReducer(input, opr) {
   const regex = /^(-)?\d+(\.\d+)?$/g;
   const regex2 = /^(-)?\d+(\.\d+)?(\+|-|\*|\/)$/g;
   if (String(input).match(regex)) {
@@ -121,7 +121,7 @@ function setOper(input, opr) {
   }
   const regexOfCompletedForm = /^(-)?\d+(\.\d+)?(\+|-|\*|\/)\d+(\.\d+)?$/;
   if (String(input).match(regexOfCompletedForm)) {
-    input = calc(input);
+    input = calcReducer(input);
     return `${input}${opr}`;
   }
   return input;

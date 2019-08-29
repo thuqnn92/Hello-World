@@ -7,29 +7,29 @@ import {
   DOT,
   MINUS,
 } from '../constants/constants';
-export function changeInput(input) {
+export function setInputAction(input) {
   return {
     type: INPUT,
     payload: input,
   };
 }
-export function changeOperator(opr) {
+export function SetOperatorAction(opr) {
   return {
     type: OPERATOR,
     payload: opr,
   };
 }
-export function changeCalculator() {
+export function SetCalculatorAction() {
   return {
     type: CALCULATOR,
   };
 }
-export function changeClean() {
+export function setCleanAction() {
   return {
     type: CLEAN,
   };
 }
-export function changeBack() {
+export function SetBackAction() {
   return {
     type: BACK,
   };
