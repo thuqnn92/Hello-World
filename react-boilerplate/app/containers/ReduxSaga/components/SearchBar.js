@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
-import { fetchImages } from "../actions/actions";
+import React from 'react';
+import { connect } from 'react-redux';
+import { fetchImages } from '../actions/actions';
 
 class SearchBar extends React.Component {
   state = {
-    term: ""
+    term: '',
   };
 
   onFormSubmit = event => {
@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
 
   onInputChange = e => {
     this.setState({
-      term: e.target.value
+      term: e.target.value,
     });
   };
 
@@ -38,5 +38,5 @@ class SearchBar extends React.Component {
 
 export default connect(
   null,
-  { fetchImages }
+  { fetchImages },
 )(SearchBar);

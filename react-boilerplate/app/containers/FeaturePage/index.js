@@ -6,9 +6,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import H1 from 'components/H1';
-import reducer from './reducers/Caculator';
-import {createStore} from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import reducer from './reducers/Caculator';
 import App from './component/NewReduxCaculator';
 const store = createStore(reducer);
 export default function FeaturePage() {

@@ -1,54 +1,112 @@
-/* eslint-disable arrow-body-style */
-/* eslint-disable react/prop-types */
-/* eslint-disable prettier/prettier */
-/* eslint-disable indent */
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import {changeCalculator,changeClean,changeOperator,changeInput,changeBack} from '../actions/Calculator';
-const operators = ["+", "-", "*", "/"];
-const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+import PropTypes from 'prop-types';
+import {
+  changeCalculator,
+  changeClean,
+  changeOperator,
+  changeInput,
+  changeBack,
+  setDotAction,
+} from '../actions/Calculator';
+const operators = [
+  { opr: '+', id: '+' },
+  { opr: '-', id: '-' },
+  { opr: '/', id: '/' },
+  { opr: '*', id: '*' },
+];
+const numbers = [
+  { number: '0', id: '0' },
+  { number: '1', id: '1' },
+  { number: '2', id: '2' },
+  { number: '3', id: '3' },
+  { number: '4', id: '4' },
+  { number: '5', id: '5' },
+  { number: '6', id: '6' },
+  { number: '7', id: '7' },
+  { number: '8', id: '8' },
+  { number: '9', id: '9' },
+];
 
 class NewReduxCaculator extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
-    const {setOperator,setClean,setNumber,setResult,input,setBack} = this.props;
+    const {
+      setOperator,
+      setClean,
+      setNumber,
+      setResult,
+      input,
+      setBack,
+      setDot,
+    } = this.props;
     return (
       <div>
         <h1>Redux Calculator</h1>
-        <input type="text" readOnly value={input}></input>
-        {operators.map((opr, index) => (
-            <button type="button" key={index} onClick={() => setOperator(opr)}>
-              {opr}
-            </button>
-          ))}
-           <br/>
-          <button type="button" onClick={setClean}>C</button>
-          <button type="button" onClick={setBack}>Back</button>
-          <button type="button" onClick={setResult}>=</button>
-        <br/>
-        {numbers.map((target,index) => (
-          <button type="button" key={index} onClick={()=> setNumber(target)}>
-            {target}
+        <input type="text" readOnly value={input} />
+        {operators.map(opr => (
+          <button
+            type="button"
+            key={opr.id}
+            onClick={() => setOperator(opr.opr)}
+          >
+            {opr.opr}
           </button>
         ))}
-        
+        <br />
+        <button type="button" onClick={setClean}>
+          C
+        </button>
+        <button type="button" onClick={setDot}>
+          .
+        </button>
+        <button type="button" onClick={setBack}>
+          Back
+        </button>
+        <button type="button" onClick={setResult}>
+          =
+        </button>
+        <br />
+        {numbers.map(target => (
+          <button
+            type="button"
+            key={target.id}
+            onClick={() => setNumber(target.number)}
+          >
+            {target.number}
+          </button>
+        ))}
       </div>
-    )
+    );
   }
 }
-
+NewReduxCaculator.propTypes = {
+  setOperator: PropTypes.func,
+  setClean: PropTypes.func,
+  setNumber: PropTypes.func,
+  setResult: PropTypes.func,
+  input: PropTypes.any,
+  setBack: PropTypes.func,
+  setDot: PropTypes.func,
+};
 const mapStateToProps = state => ({
   input: state.input,
   operator: state.operator,
 });
 
 function mapDispatchToProps(dispatch) {
-  return { 
+  return {
     setNumber: input => dispatch(changeInput(input)),
     setOperator: opr => dispatch(changeOperator(opr)),
     setClean: () => dispatch(changeClean()),
     setBack: () => dispatch(changeBack()),
     setResult: () => dispatch(changeCalculator()),
-   };
+    setDot: input => dispatch(setDotAction(input)),
+  };
 }
 export default connect(
   mapStateToProps,

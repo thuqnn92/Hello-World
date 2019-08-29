@@ -3,9 +3,4 @@
  * ReduxSaga actions
  *
  */
-
-
-
-export const fetchImages = term => {
-  return { type: "FETCH_IMAGES", term };
-};
+export const fetchImages = term => ({ type: 'FETCH_IMAGES', term });

@@ -8,11 +8,11 @@ const onClickReducer = (state = initialState, action) =>
   produce(state, draft => {
     switch (action.type) {
       case 'INCREMENT':
-    draft.count = draft.count + 1;
-    break;
-    case 'DECREMENT':
-      draft.count = draft.count - 1;
-    break;
+        draft.count += 1;
+        break;
+      case 'DECREMENT':
+        draft.count -= 1;
+        break;
     }
   });
 
