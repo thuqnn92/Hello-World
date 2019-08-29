@@ -3,12 +3,34 @@
  * ToDoList actions
  *
  */
-
-import * as types from '../constants/constants';
-
-export const addTodo = text => ({ type: types.ADD_TODO, text });
-export const deleteTodo = id => ({ type: types.DELETE_TODO, id });
-export const editTodo = (id, text) => ({ type: types.EDIT_TODO, id, text });
-export const completeTodo = id => ({ type: types.COMPLETE_TODO, id });
-export const completeAll = () => ({ type: types.COMPLETE_ALL });
-export const clearCompleted = () => ({ type: types.CLEAR_COMPLETED });
+import {
+  ADD_TODO,
+  CLEAR_COMPLETED,
+  COMPLETE_ALL,
+  COMPLETE_TODO,
+  EDIT_TODO,
+  DELETE_TODO,
+} from '../constants/constants';
+export const setAddTodoAction = text => ({
+  type: ADD_TODO,
+  text,
+});
+export const setClearAction = () => ({
+  type: CLEAR_COMPLETED,
+});
+export const setCompleteAllAction = () => ({
+  type: COMPLETE_ALL,
+});
+export const setCompleteTodoAction = id => ({
+  type: COMPLETE_TODO,
+  id,
+});
+export const setEditTodoAction = (text, id) => ({
+  type: EDIT_TODO,
+  text,
+  id,
+});
+export const setDeleteTodoAction = id => ({
+  type: DELETE_TODO,
+  id,
+});

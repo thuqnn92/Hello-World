@@ -6,25 +6,26 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
+import { connect, Provider } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { compose } from 'redux';
+import { compose, createStore } from 'redux';
 
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectToDoList from './selectors';
 import reducer from './reducers/reducer';
 import saga from './saga';
-import messages from './messages';
-
+import Todos from './components/todos';
+const store = createStore(reducer);
 export function ToDoList() {
   useInjectReducer({ key: 'toDoList', reducer });
   useInjectSaga({ key: 'toDoList', saga });
 
   return (
     <div>
-      <FormattedMessage {...messages.header} />
+      <Provider store={store}>
+        <Todos />
+      </Provider>
     </div>
   );
 }

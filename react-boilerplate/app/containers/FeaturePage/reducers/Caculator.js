@@ -62,7 +62,7 @@ function setDotReducer(input) {
     return `${input}.`;
   }
   if (String(input).match(regex2)) {
-    return `${input}.`;
+    return `${input}0.`;
   }
 
   if (String(input).match(regex3)) {
