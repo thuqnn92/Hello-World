@@ -43,12 +43,12 @@ const reducerCalculator = (state = initialState, action) =>
     }
   });
 function setMinusReducer(input) {
-  const regexOfPositive = /^\d*(\.\d*)?$/g;
-  const regexOfNegative = /^(-)\d*(\.\d*)?$/g;
-  if (String(input).match(regexOfPositive)) {
+  const regexBefore = /^\d*(\.\d*)?$/g;
+  const regexAfter = /^(-)\d*(\.\d*)?$/g;
+  if (String(input).match(regexBefore)) {
     return `-${input}`;
   }
-  if (String(input).match(regexOfNegative)) {
+  if (String(input).match(regexAfter)) {
     return `${input.slice(1)}`;
   }
   return input;
