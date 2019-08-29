@@ -8,6 +8,7 @@ import {
   INPUT,
   BACK,
   DOT,
+  MINUS,
 } from '../constants/constants';
 export const initialState = {
   input: '',
@@ -36,8 +37,22 @@ const reducerCalculator = (state = initialState, action) =>
       case DOT:
         draft.input = setDot(draft.input);
         break;
+      case MINUS:
+        draft.input = setMinus(draft.input);
+        break;
     }
   });
+function setMinus(input) {
+  const regexOfPositive = /^\d*(\.\d*)?$/g;
+  const regexOfNegative = /^(-)\d*(\.\d*)?$/g;
+  if (String(input).match(regexOfPositive)) {
+    return `-${input}`;
+  }
+  if (String(input).match(regexOfNegative)) {
+    return `${input.slice(1)}`;
+  }
+  return input;
+}
 function setDot(input) {
   const regex1 = /^(-)?\d+$/;
   const regex2 = /^(-)?$/;

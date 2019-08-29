@@ -5,6 +5,7 @@ import {
   INPUT,
   BACK,
   DOT,
+  MINUS,
 } from '../constants/constants';
 export function changeInput(input) {
   return {
@@ -37,5 +38,10 @@ export function setDotAction(input) {
   return {
     type: DOT,
     input,
+  };
+}
+export function setMinusAction() {
+  return {
+    type: MINUS,
   };
 }

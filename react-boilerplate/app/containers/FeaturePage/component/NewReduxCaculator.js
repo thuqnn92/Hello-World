@@ -8,13 +8,9 @@ import {
   changeInput,
   changeBack,
   setDotAction,
+  setMinusAction,
 } from '../actions/Calculator';
-const operators = [
-  { opr: '+', id: '+' },
-  { opr: '-', id: '-' },
-  { opr: '/', id: '/' },
-  { opr: '*', id: '*' },
-];
+const operators = ['-', '+', '*', '/'];
 const numbers = [
   { number: '0', id: '0' },
   { number: '1', id: '1' },
@@ -34,6 +30,15 @@ class NewReduxCaculator extends Component {
     this.state = {};
   }
 
+  setMinusOperator = operator => {
+    const regex = /^(-)?$/;
+    if (String(this.props.input).match(regex)) {
+      this.props.setMinus();
+    } else {
+      this.props.setOperator(operator);
+    }
+  };
+
   render() {
     const {
       setOperator,
@@ -48,13 +53,15 @@ class NewReduxCaculator extends Component {
       <div>
         <h1>Redux Calculator</h1>
         <input type="text" readOnly value={input} />
-        {operators.map(opr => (
-          <button
-            type="button"
-            key={opr.id}
-            onClick={() => setOperator(opr.opr)}
-          >
-            {opr.opr}
+        <button
+          type="button"
+          onClick={() => this.setMinusOperator(operators[0])}
+        >
+          {operators[0]}
+        </button>
+        {operators.slice(1).map(opr => (
+          <button type="button" key={opr.id} onClick={() => setOperator(opr)}>
+            {opr}
           </button>
         ))}
         <br />
@@ -92,6 +99,7 @@ NewReduxCaculator.propTypes = {
   input: PropTypes.any,
   setBack: PropTypes.func,
   setDot: PropTypes.func,
+  setMinus: PropTypes.func,
 };
 const mapStateToProps = state => ({
   input: state.input,
@@ -106,6 +114,7 @@ function mapDispatchToProps(dispatch) {
     setBack: () => dispatch(changeBack()),
     setResult: () => dispatch(changeCalculator()),
     setDot: input => dispatch(setDotAction(input)),
+    setMinus: () => dispatch(setMinusAction()),
   };
 }
 export default connect(
