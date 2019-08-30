@@ -20,8 +20,7 @@ import {
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
-import { Provider } from "react-redux";
-import { createStore } from "redux";
+
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
@@ -35,9 +34,7 @@ import reducer from './reducer';
 import saga from './saga';
 import CounterClass from './component/CounterClass';
 import CounterHook from './component/CounterHook';
-import reducers from "./reducers";
-import App from "./component/AppRedux";
-const store = createStore(reducers);
+import AppRedux from './component/AppRedux';
 
 const key = 'home';
 
@@ -86,9 +83,7 @@ export function HomePage({
             <FormattedMessage {...messages.trymeHeader} />
             <CounterClass />
             <CounterHook />
-            <Provider store={store}>
-              <App />
-            </Provider>
+            <AppRedux />
           </H2>
           <Form onSubmit={onSubmitForm}>
             <label htmlFor="username">

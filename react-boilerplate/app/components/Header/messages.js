@@ -12,6 +12,10 @@ export default defineMessages({
     id: `${scope}.home`,
     defaultMessage: 'Home Count',
   },
+  counter: {
+    id: `${scope}.counter`,
+    defaultMessage: 'Counter Redux',
+  },
   features: {
     id: `${scope}.features`,
     defaultMessage: 'Calculator',

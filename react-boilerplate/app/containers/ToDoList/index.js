@@ -15,7 +15,7 @@ import { useInjectReducer } from 'utils/injectReducer';
 import makeSelectToDoList from './selectors';
 import reducer from './reducers/reducer';
 import saga from './saga';
-import Todos from './components/todos';
+import App from './components/App';
 const store = createStore(reducer);
 export function ToDoList() {
   useInjectReducer({ key: 'toDoList', reducer });
@@ -24,7 +24,7 @@ export function ToDoList() {
   return (
     <div>
       <Provider store={store}>
-        <Todos />
+        <App />
       </Provider>
     </div>
   );
