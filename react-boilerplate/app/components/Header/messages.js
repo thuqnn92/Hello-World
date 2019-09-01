@@ -10,22 +10,10 @@ export const scope = 'boilerplate.components.Header';
 export default defineMessages({
   home: {
     id: `${scope}.home`,
-    defaultMessage: 'Home Count',
-  },
-  counter: {
-    id: `${scope}.counter`,
-    defaultMessage: 'Counter Redux',
+    defaultMessage: 'Home',
   },
   features: {
     id: `${scope}.features`,
-    defaultMessage: 'Calculator',
-  },
-  sagaredux: {
-    id: `${scope}.sagaredux`,
-    defaultMessage: 'Redux Saga',
-  },
-  todolist: {
-    id: `${scope}.todolist`,
-    defaultMessage: 'To Do List',
+    defaultMessage: 'Features',
   },
 });

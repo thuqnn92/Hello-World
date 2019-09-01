@@ -15,7 +15,7 @@
  *    }
  */
 
-import { CHANGE_USERNAME } from './constants';
+import { CHANGE_USERNAME, INCREMENT, DECREMENT } from './constants';
 
 /**
  * Changes the input field of the form
@@ -28,5 +28,15 @@ export function changeUsername(username) {
   return {
     type: CHANGE_USERNAME,
     username,
+  };
+}
+export function setIncrement() {
+  return {
+    type: INCREMENT,
+  };
+}
+export function setDecrement() {
+  return {
+    type: DECREMENT,
   };
 }

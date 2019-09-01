@@ -11,6 +11,7 @@ import { FormattedMessage } from 'react-intl';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
+
 import { useInjectReducer } from 'utils/injectReducer';
 import { useInjectSaga } from 'utils/injectSaga';
 import {
@@ -20,7 +21,6 @@ import {
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
 import ReposList from 'components/ReposList';
-
 import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
 import Form from './Form';
@@ -32,10 +32,9 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import CounterClass from './component/CounterClass';
-import CounterHook from './component/CounterHook';
-import AppRedux from './component/AppRedux';
-
+import CounterRedux from './CounterRedux';
+import CounterClass from './CounterClass';
+import CounterHook from './CounterHook';
 const key = 'home';
 
 export function HomePage({
@@ -70,6 +69,9 @@ export function HomePage({
         />
       </Helmet>
       <div>
+        <CounterClass />
+        <CounterHook />
+        <CounterRedux />
         <CenteredSection>
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
@@ -81,9 +83,6 @@ export function HomePage({
         <Section>
           <H2>
             <FormattedMessage {...messages.trymeHeader} />
-            <CounterClass />
-            <CounterHook />
-            <AppRedux />
           </H2>
           <Form onSubmit={onSubmitForm}>
             <label htmlFor="username">

@@ -12,10 +12,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import HomePage from 'containers/HomePage/Loadable';
-import CounterRedux from 'containers/CounterRedux/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
-import ReduxSaga from 'containers/ReduxSaga/Loadable';
-import ToDoList from 'containers/ToDoList/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import Footer from 'components/Footer';
@@ -43,10 +40,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/counter" component={CounterRedux} />
         <Route path="/features" component={FeaturePage} />
-        <Route path="/sagaredux" component={ReduxSaga} />
-        <Route path="/todolist" component={ToDoList} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />

@@ -18,17 +18,8 @@ function Header() {
         <HeaderLink to="/">
           <FormattedMessage {...messages.home} />
         </HeaderLink>
-        <HeaderLink to="/counter">
-          <FormattedMessage {...messages.counter} />
-        </HeaderLink>
         <HeaderLink to="/features">
           <FormattedMessage {...messages.features} />
-        </HeaderLink>
-        <HeaderLink to="/sagaredux">
-          <FormattedMessage {...messages.sagaredux} />
-        </HeaderLink>
-        <HeaderLink to="/todolist">
-          <FormattedMessage {...messages.todolist} />
         </HeaderLink>
       </NavBar>
     </div>
