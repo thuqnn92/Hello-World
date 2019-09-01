@@ -11,7 +11,7 @@ export function CounterRedux({ onIncrement, onDecrement, count }) {
   // useInjectReducer({ key: 'counterRedux', reducer });
   return (
     <div>
-      <h1>Counter Redux</h1>
+      <h1>Redux Counter</h1>
       <button type="button" onClick={onIncrement}>
         Increment
       </button>
