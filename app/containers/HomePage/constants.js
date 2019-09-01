@@ -10,3 +10,5 @@
  */
 
 export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+export const INCREMENT = 'boilerplate/Home/INCREMENT';
+export const DECREMENT = 'boilerplate/Home/DECREMENT';

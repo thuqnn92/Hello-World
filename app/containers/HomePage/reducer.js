@@ -8,11 +8,12 @@
  */
 
 import produce from 'immer';
-import { CHANGE_USERNAME } from './constants';
+import { CHANGE_USERNAME, INCREMENT, DECREMENT } from './constants';
 
 // The initial state of the App
 export const initialState = {
   username: '',
+  count: 0,
 };
 
 /* eslint-disable default-case, no-param-reassign */
@@ -23,6 +24,11 @@ const homeReducer = (state = initialState, action) =>
         // Delete prefixed '@' from the github username
         draft.username = action.username.replace(/@/gi, '');
         break;
+      case INCREMENT:
+        draft.count += 1;
+        break;
+      case DECREMENT:
+        draft.count -= 1;
     }
   });
 

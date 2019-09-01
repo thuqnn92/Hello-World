@@ -32,7 +32,9 @@ import { changeUsername } from './actions';
 import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-
+import CounterRedux from './CounterRedux';
+import CounterClass from './CounterClass';
+import CounterHook from './CounterHook';
 const key = 'home';
 
 export function HomePage({
@@ -67,6 +69,9 @@ export function HomePage({
         />
       </Helmet>
       <div>
+        <CounterClass />
+        <CounterHook />
+        <CounterRedux />
         <CenteredSection>
           <H2>
             <FormattedMessage {...messages.startProjectHeader} />
