@@ -42,3 +42,17 @@ input[type="text"]::placeholder {
   font-style: italic;
   font-weight: 400;
 }
+.footer{
+  text-align: center;
+  display: flex;
+}
+.footer button {
+  padding: 0 20px;
+}
+.footer p{
+  font-size: 14px;
+  text-align: right;
+}
+.footer-button{
+  margin: 0 auto;
+}

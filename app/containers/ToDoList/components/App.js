@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem';
+import Footer from './Footer';
 import CheckAll from '../img/CheckAll.svg';
 // eslint-disable-next-line react/prefer-stateless-function
 export default class App extends Component {
@@ -86,6 +87,7 @@ export default class App extends Component {
             />
           ))}
         {todoItems.length === 0 && 'Nothing here'}
+        <Footer />
       </div>
     );
   }
