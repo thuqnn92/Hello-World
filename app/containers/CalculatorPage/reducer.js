@@ -16,6 +16,7 @@ import {
 /* eslint-disable default-case, no-param-reassign */
 export const initialState = {
   input: '',
+  operator: '',
 };
 
 const reducerCalculator = (state = initialState, action) =>
@@ -29,6 +30,7 @@ const reducerCalculator = (state = initialState, action) =>
         break;
       case CALCULATOR:
         draft.input = calcReducer(draft.input);
+        draft.operator = '';
         break;
       case OPERATOR:
         draft.input = setOperReducer(draft.input, action.payload);
