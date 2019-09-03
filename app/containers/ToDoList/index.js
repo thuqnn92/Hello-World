@@ -18,7 +18,7 @@ import makeSelectToDoList from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
-
+import App from './components/App';
 export function ToDoList() {
   useInjectReducer({ key: 'toDoList', reducer });
   useInjectSaga({ key: 'toDoList', saga });
@@ -30,6 +30,7 @@ export function ToDoList() {
         <meta name="description" content="Description of ToDoList" />
       </Helmet>
       <FormattedMessage {...messages.header} />
+      <App />
     </div>
   );
 }
